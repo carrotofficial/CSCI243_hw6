@@ -59,7 +59,8 @@ void ht_put(HashTable *self, int key, int value) {
 }
 
 int ht_get(const HashTable *self, int key) {
-    
+    int index = hash(self, key);
+    return 0;
 }
 
 int ht_contains(const HashTable *self, int key) {
@@ -72,7 +73,7 @@ int ht_contains(const HashTable *self, int key) {
 }
 
 int ht_remove(HashTable *self, int key) {
-    
+    return 0;
 }
 
 size_t ht_size(const HashTable *self) {
