@@ -28,7 +28,8 @@ int ht_get(const HashTable *self, int key) {
 }
 
 int ht_contains(const HashTable *self, int key) {
-    for (int i=0; i<ht_size(); i++) {
+    //for (int i=0; i<ht_size(); i++) {
+    int i = 0;
         if (i == key) {
             return 1;
         }
