@@ -58,9 +58,19 @@ void ht_put(HashTable *self, int key, int value) {
     }
 }
 
-int ht_get(const HashTable *self, int key) {
+int ht_get(const HashTable *self, int key, int *found) {
     int index = hash(self, key);
-    return 0;
+    Node *head = self -> nodeArray[index];
+
+    while (head != NULL) {
+        if (key == (*head).key) {
+            *found = 1;
+            return head -> value;
+        }
+        head = head -> next;
+    }
+
+    *found = 0;
 }
 
 int ht_contains(const HashTable *self, int key) {
