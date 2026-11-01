@@ -83,7 +83,28 @@ int ht_contains(const HashTable *self, int key) {
 }
 
 int ht_remove(HashTable *self, int key) {
-    return 0;
+    int contains =  ht_contains(self, key);
+
+    int index = hash(self, key);
+    Node *prev = NULL;
+    Node *current = self -> nodeArray[index];
+
+    while (current != NULL) {
+        if (current -> key == key) {
+            if (current == self -> nodeArray[index]) {
+                self -> nodeArray[index] = current -> next;
+            }
+            else {
+                prev -> next = current -> next;
+            }
+            free(current);
+            break;
+        }
+        prev = current;
+        current = current -> next;
+    }
+
+    return contains;
 }
 
 size_t ht_size(const HashTable *self) {
