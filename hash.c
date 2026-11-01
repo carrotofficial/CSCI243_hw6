@@ -60,7 +60,7 @@ void ht_put(HashTable *self, int key, int value) {
 
 int ht_get(const HashTable *self, int key) {
     int index = hash(self, key);
-    
+    return 0;
 }
 
 int ht_contains(const HashTable *self, int key) {
