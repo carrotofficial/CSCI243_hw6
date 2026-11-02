@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct Node {
     int key;
     int value;
     struct Node *next;
@@ -29,11 +29,12 @@ typedef struct {
 } HashTable;
 
 HashTable *ht_create() {
-    HashTable *ht;
-    ht -> size = 0;
-    ht -> max = 30;
-    ht -> nodeArray = (Node **) malloc(sizeof(Node *) * (ht -> max));
-    return ht;
+    HashTable ht;
+    HashTable *htp = &ht;
+    htp -> size = 0;
+    htp -> max = 30;
+    htp -> nodeArray = (Node **) malloc(sizeof(Node *) * (htp -> max));
+    return htp;
 }
 
 int hash(HashTable *ht, int key) {
@@ -49,13 +50,13 @@ void ht_put(HashTable *self, int key, int value) {
     Node *new = (Node *) malloc(sizeof(Node));
     node_set(new, key, value);
 
-    if (self -> nodeArray[index] == NULL) {
+    /*if (self -> nodeArray[index] == NULL) {
         self -> nodeArray[index] = new;
     }
     else {
         new -> next = self -> nodeArray[index];
         self -> nodeArray[index] = new;
-    }
+    }*/
 }
 
 int ht_get(const HashTable *self, int key, int *found) {
@@ -110,3 +111,13 @@ int ht_remove(HashTable *self, int key) {
 size_t ht_size(const HashTable *self) {
     return sizeof(*self);
 }
+
+
+// Will not be compiled for submission
+#ifdef DEBUG
+int main() {
+    HashTable *ht = ht_create();
+    ht_put(ht, 0, 1);
+    return 0;
+}
+#endif
