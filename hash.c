@@ -114,10 +114,10 @@ size_t ht_size(const HashTable *self) {
 
 
 // Will not be compiled for submission
-#ifdef DEBUG
+/*#ifdef DEBUG
 int main() {
     HashTable *ht = ht_create();
     ht_put(ht, 0, 1);
     return 0;
 }
-#endif
+#endif*/
