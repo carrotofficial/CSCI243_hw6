@@ -33,7 +33,7 @@ HashTable *ht_create() {
     HashTable *htp = &ht;
     htp -> size = 0;
     htp -> max = 30;
-    htp -> nodeArray = (Node **) malloc(sizeof(Node *) * (htp -> max));
+    //htp -> nodeArray = (Node **) malloc(sizeof(Node *) * (htp -> max));
     return htp;
 }
 
@@ -47,8 +47,8 @@ void ht_destroy(HashTable *self) {
 
 void ht_put(HashTable *self, int key, int value) {
     int index = hash(self, key);
-    Node *new = (Node *) malloc(sizeof(Node));
-    node_set(new, key, value);
+    //Node *new = (Node *) malloc(sizeof(Node));
+    //node_set(new, key, value);
 
     /*if (self -> nodeArray[index] == NULL) {
         self -> nodeArray[index] = new;
